@@ -22,3 +22,12 @@ app.listen(3000,()=>{
 "scripts": {
     "dev": "nodemon src/app.js"
   },
+
+
+  mongodb+srv://shakti:<password>@cluster0.5nwbr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+  //Mongoose
+  npm i mongoose
+
+  REF: https://www.youtube.com/watch?v=68Jd7GXZPe8&list=PLwGdqUZWnOp3t3qT7pvAznwUDzKbhEcCc&index=5&ab_channel=ThapaTechnical
