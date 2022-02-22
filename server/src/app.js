@@ -1,21 +1,23 @@
-//FOR DATABASE CONNECTION 
-const mongoose = require('mongoose');
-
+//IMPORT dotenv
+const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 
-//CONNECTING TO DATABASE
-const DB = 'mongodb+srv://shakti:PADAMBISNU12@cluster0.5nwbr.mongodb.net/mernStack?retryWrites=true&w=majority'
-//connection
-mongoose.connect(DB).then(()=>{
-    console.log(`connection successful`);
-}).catch((err)=>console.log(`NO connection, ${err}`))
+//.env
+dotenv.config({path: './config.env'});
+
+//DATABASE CONNECTION
+require('../db/connection')
+
+//PORT 
+const PORT =  process.env.PORT;
+
 //get(path,callback)
 app.get('/',(req,res)=>{
     res.send(`Hello world from the server`);
 })
 
 //listening to the server
-app.listen(3000,()=>{
-    console.log(`Server is running at port no. 3000`)
+app.listen(PORT,()=>{
+    console.log(`Server is running at port no. ${PORT}`)
 })
