@@ -1,5 +1,6 @@
 //IMPORT dotenv
 const dotenv = require('dotenv');
+const { request } = require('express');
 const express = require('express');
 const app = express();
 
@@ -7,7 +8,9 @@ const app = express();
 dotenv.config({path: './config.env'});
 
 //DATABASE CONNECTION
-require('../db/connection')
+require('../db/connection');
+//User model
+const User = require('../model/userSchema');
 
 //PORT 
 const PORT =  process.env.PORT;
