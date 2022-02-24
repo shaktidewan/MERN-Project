@@ -31,3 +31,7 @@ app.listen(3000,()=>{
 
 //INSTALL dontenv(.env)
 npm install dotenv --save
+
+//INSTALL bcrypt.js 
+npm install bcryptjs
+
