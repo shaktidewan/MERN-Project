@@ -50,11 +50,12 @@ router.post("/register", async (req, res) => {
       return res.status(422).json({ error: "Email already taken" });
     }else if(password !== cpassword){
       return res.status(422).json({ error: "Password Mismatched" });
+    }else{
+      const user = new User({ name, email, phone, work, password, cpassword });
+      //pre method for hashing in userSchema is ran
+      await user.save();
+      res.status(201).json({ message: "Successfully registered" });
     }
-    const user = new User({ name, email, phone, work, password, cpassword });
-    //pre method for hashing in userSchema is ran
-    await user.save();
-    res.status(201).json({ message: "Successfully registered" });
   } catch (error) {
     console.log(error);
   }
