@@ -52,6 +52,13 @@ router.post("/signin", async (req,res) =>{
       //JSON WEB TOKEN GENERATOR
       const token = await userLogin.generateAuthToken();
       console.log(token);
+
+      //FOR STORING TOKEN IN COOKIES
+      res.cookie("jwtToken",token,{
+        expires:new Date(Date.now()+25892000000),//expires afte 30 days
+        httpOnly:true
+      });
+
       if(!isMatched){
         res.status(400).json({error:'Invalid Credientials'});
       }else{
