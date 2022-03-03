@@ -41,3 +41,6 @@ npm install jsonwebtoken
 
 //FOR REACT
 npx create-react-app client
+
+//FOR BOOTSTRAP
+npm i bootstrap
