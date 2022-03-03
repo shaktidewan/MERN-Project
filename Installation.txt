@@ -44,3 +44,6 @@ npx create-react-app client
 
 //FOR BOOTSTRAP
 npm i bootstrap
+
+//FOR REACT ROUTER DOM
+npm i react-router-dom

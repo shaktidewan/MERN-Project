@@ -1,16 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
             Navbar
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -18,37 +19,37 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div>
-            <div class="d-flex" ></div>
-            <div class="d-flex">
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
+            <div className="d-flex" ></div>
+            <div className="d-flex">
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <NavLink className="nav-link active" aria-current="page" to="/">
                       Home
-                    </a>
+                    </NavLink>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/about">
                       About
-                    </a>
+                    </NavLink>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/contact">
                       Contact
-                    </a>
+                    </NavLink>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login">
                       Login
-                    </a>
+                    </NavLink>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/signup">
                       Sign In
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </div>

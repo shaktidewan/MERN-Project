@@ -1,10 +1,12 @@
 import React from "react";
 
-export const home = () => {
+ const Home = () => {
   return (
-    <div>
+    <div className="mt-5">
       <p>WELCOME</p>
       <h1>We are THE MERN Developers</h1>
     </div>
   );
 };
+
+export default Home;
