@@ -37,3 +37,7 @@ npm install bcryptjs
 
 //FOR JSON WEB TOKEN
 npm install jsonwebtoken
+
+
+//FOR REACT
+npx create-react-app client
