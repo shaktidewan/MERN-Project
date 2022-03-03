@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import { FaBeer } from "react-icons/fa";
 
 const Signup = () => {
   return (
-    <div>Signup</div>
-  )
-}
+    <div className="mt-5">
+      <section className="signup">
+        <div style={{marginLeft:'50%'}}>
+        <FaBeer />
 
-export default Signup
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Signup;

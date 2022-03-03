@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       {/* Navbar will always be on top  */}
       <Routes>
         <Route extact path="/" element={<Home />} />
