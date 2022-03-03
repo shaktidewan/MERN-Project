@@ -1,94 +1,116 @@
 import React from "react";
-import { FaBeer } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
+import { BsFillPersonFill } from "react-icons/bs";
+import { AiOutlineMail, AiFillPhone } from "react-icons/ai";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 const Signup = () => {
   return (
-    <div style={{ alignItems: "center" }}>
-      <section className="signup">
-        <div className="container mt-5">
-          <div className="signup-form">
-            <h2 className="form-title">Sign Up</h2>
-            <form className="register-form" id="register-form">
-              <div className="form-group">
-                <label htmlFor="name">
-                  <FaBeer />
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  autoComplete="off"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">
-                  <FaBeer />
-                </label>
-                <input
-                  type="text"
-                  id="email"
-                  autoComplete="off"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">
-                  <FaBeer />
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  autoComplete="off"
-                  placeholder="Your Phone"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">
-                  <FaBeer />
-                </label>
-                <input
-                  type="text"
-                  id="password"
-                  autoComplete="off"
-                  placeholder="Your Password"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="work">
-                  <FaBeer />
-                </label>
-                <input
-                  type="password"
-                  id="work"
-                  autoComplete="off"
-                  placeholder="Your Password"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="cpassword">
-                  <FaBeer />
-                </label>
-                <input
-                  type="password"
-                  id="cpassword"
-                  autoComplete="off"
-                  placeholder="Confirm Password"
-                />
-              </div>
+    // <div style={{ alignItems: "center" }}>
+    //   <section className="signup">
+    //     <div className="container mt-5">
 
-              <div className="form-group form-button">
-                <input type="submit" name="signup" id="signup" className="form-submit" value="register"/>
+    //         {/* RIGHT SIDE */}
+    //         <div className="signup-image">
+    //           <figure>
+    //             <img/>
+    //           </figure>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    // </div>
+    <div className="container">
+      <div className="row justify-content-md-center">
+        <div className="col col-lg-12" style={{}}>
+          <div className="container">
+            <div className="row">
+            <div className="col-2" style={{}}/>
+              <div className="col-6" style={{}}>
+                <div className="signup-form">
+                  <h2 className="form-title">Sign Up</h2>
+                  <form>
+                    <div className="mb-3">
+                      <label for="exampleInputName1" className="form-label">
+                        Name*
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        autoComplete="off"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label for="phone" className="form-label">
+                        Phone*
+                      </label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        id="phone"
+                        autoComplete="off"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label for="phone" className="form-label">
+                        Work*
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="work"
+                        autoComplete="off"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label for="exampleInputEmail1" className="form-label">
+                        Email address*
+                      </label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        aria-describedby="emailHelp"
+                      />
+                      <div id="emailHelp" className="form-text">
+                        We'll never share your email with anyone else.
+                      </div>
+                    </div>
+                    <div className="mb-3">
+                      <label for="password" className="form-label">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label for="confirm password" className="form-label">
+                        Confirm Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="cpassword"
+                      />
+                    </div>
+
+                    <button type="submit" className="btn btn-primary" id="signup">
+                      Submit
+                    </button>
+                  </form>
+                </div>
               </div>
-            </form>
-            {/* RIGHT SIDE */}
-            <div className="signup-image">
-              <figure>
-                {/* <img/> */}
-              </figure>
+              <div className="col-4" style={{}}>
+                col-4
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
