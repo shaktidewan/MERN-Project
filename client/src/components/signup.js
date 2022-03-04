@@ -105,7 +105,6 @@ const Signup = () => {
                 </div>
               </div>
               <div className="col-4" style={{}}>
-                col-4
               </div>
             </div>
           </div>
