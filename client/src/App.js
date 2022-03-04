@@ -6,17 +6,20 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
+import Errorpage from "./components/Errorpage";
+
 const App = () => {
   return (
     <>
       <Navbar/>
       {/* Navbar will always be on top  */}
       <Routes>
-        <Route extact path="/" element={<Home />} />
-        <Route extact path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/contact" element={<Contact/>} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<Signup />} />
+        <Route path="*" element={<Errorpage />} />
       </Routes>
     </>
   );
