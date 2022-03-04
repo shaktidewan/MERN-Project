@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdWork } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineMail, AiFillPhone } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 const Signup = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    work: "",
+    password: "",
+    cpassword: ""
+  });
+
+  let name,value;
+  const handleInputs = (e) =>{
+    e.preventDefault();
+    name = e.target.name;
+    value = e.target.value;
+
+    //spread operator;[name]=>key and it's value
+    setUser({...user,[name]:value});
+  }
+
+  console.log(user.name);
+  
   return (
     // <div style={{ alignItems: "center" }}>
     //   <section className="signup">
@@ -25,7 +46,7 @@ const Signup = () => {
         <div className="col col-lg-12" style={{}}>
           <div className="container">
             <div className="row">
-            <div className="col-2" style={{}}/>
+              <div className="col-2" style={{}} />
               <div className="col-6" style={{}}>
                 <div className="signup-form">
                   <h2 className="form-title">Sign Up</h2>
@@ -37,8 +58,11 @@ const Signup = () => {
                       <input
                         type="text"
                         className="form-control"
+                        name="name"
                         id="name"
                         autoComplete="off"
+                        value={user.name}
+                        onChange={handleInputs}
                       />
                     </div>
                     <div className="mb-3">
@@ -48,8 +72,11 @@ const Signup = () => {
                       <input
                         type="number"
                         className="form-control"
+                        name="phone"
                         id="phone"
                         autoComplete="off"
+                        value={user.phone}
+                        onChange={handleInputs}
                       />
                     </div>
                     <div className="mb-3">
@@ -59,8 +86,11 @@ const Signup = () => {
                       <input
                         type="text"
                         className="form-control"
+                        name="work"
                         id="work"
                         autoComplete="off"
+                        value={user.work}
+                        onChange={handleInputs}
                       />
                     </div>
                     <div className="mb-3">
@@ -70,12 +100,12 @@ const Signup = () => {
                       <input
                         type="email"
                         className="form-control"
+                        name="email"
                         id="email"
                         aria-describedby="emailHelp"
+                        value={user.email}
+                        onChange={handleInputs}
                       />
-                      <div id="emailHelp" className="form-text">
-                        We'll never share your email with anyone else.
-                      </div>
                     </div>
                     <div className="mb-3">
                       <label for="password" className="form-label">
@@ -84,7 +114,10 @@ const Signup = () => {
                       <input
                         type="password"
                         className="form-control"
+                        name="password"
                         id="password"
+                        value={user.password}
+                        onChange={handleInputs}
                       />
                     </div>
                     <div className="mb-3">
@@ -94,18 +127,24 @@ const Signup = () => {
                       <input
                         type="password"
                         className="form-control"
+                        name="cpassword"
                         id="cpassword"
+                        value={user.cpassword}
+                        onChange={handleInputs}
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-primary" id="signup">
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      id="signup"
+                    >
                       Submit
                     </button>
                   </form>
                 </div>
               </div>
-              <div className="col-4" style={{}}>
-              </div>
+              <div className="col-4" style={{}}></div>
             </div>
           </div>
         </div>

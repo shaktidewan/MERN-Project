@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Errorpage from "./components/Errorpage";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
   return (
