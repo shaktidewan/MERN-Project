@@ -19,13 +19,12 @@ const Signup = () => {
     e.preventDefault();
     name = e.target.name;
     value = e.target.value;
-
     //spread operator;[name]=>key and it's value
     setUser({...user,[name]:value});
   }
 
   console.log(user.name);
-  
+
   return (
     // <div style={{ alignItems: "center" }}>
     //   <section className="signup">
