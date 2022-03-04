@@ -3,28 +3,54 @@ import { MdWork } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineMail, AiFillPhone } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
     work: "",
     password: "",
-    cpassword: ""
+    cpassword: "",
   });
 
-  let name,value;
-  const handleInputs = (e) =>{
+  let name, value;
+  const handleInputs = (e) => {
     e.preventDefault();
     name = e.target.name;
     value = e.target.value;
     //spread operator;[name]=>key and it's value
-    setUser({...user,[name]:value});
-  }
+    setUser({ ...user, [name]: value });
+  };
 
-  console.log(user.name);
+  //fetch api
+  const postData = async (e) => {
+    e.preventDefault();
+    //object destructuring
+    const { name, email, phone, work, password, cpassword } = user;
 
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        //if key and name is same we can write like this
+        name, email, phone, work, password, cpassword
+      }),
+    });
+
+    const data = await res.json();
+
+    if(data.status === 422 || !data){
+      window.alert('Invalid Registration');
+    }else{
+      window.alert('Registration Successful');
+
+      navigate("/login");
+    }
+  };
   return (
     // <div style={{ alignItems: "center" }}>
     //   <section className="signup">
@@ -49,9 +75,9 @@ const Signup = () => {
               <div className="col-6" style={{}}>
                 <div className="signup-form">
                   <h2 className="form-title">Sign Up</h2>
-                  <form>
+                  <form method="POST">
                     <div className="mb-3">
-                      <label for="exampleInputName1" className="form-label">
+                      <label htmlFor="exampleInputName1" className="form-label">
                         Name*
                       </label>
                       <input
@@ -65,7 +91,7 @@ const Signup = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label for="phone" className="form-label">
+                      <label htmlFor="phone" className="form-label">
                         Phone*
                       </label>
                       <input
@@ -79,7 +105,7 @@ const Signup = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label for="phone" className="form-label">
+                      <label htmlFor="phone" className="form-label">
                         Work*
                       </label>
                       <input
@@ -93,7 +119,7 @@ const Signup = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label for="exampleInputEmail1" className="form-label">
+                      <label htmlFor="exampleInputEmail1" className="form-label">
                         Email address*
                       </label>
                       <input
@@ -107,7 +133,7 @@ const Signup = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label for="password" className="form-label">
+                      <label htmlFor="password" className="form-label">
                         Password
                       </label>
                       <input
@@ -120,7 +146,7 @@ const Signup = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label for="confirm password" className="form-label">
+                      <label htmlFor="confirm password" className="form-label">
                         Confirm Password
                       </label>
                       <input
@@ -137,6 +163,7 @@ const Signup = () => {
                       type="submit"
                       className="btn btn-primary"
                       id="signup"
+                      onClick={postData}
                     >
                       Submit
                     </button>
