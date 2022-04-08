@@ -1,0 +1,7 @@
+For React:
+->cd client
+->npm start
+
+For Mongo:
+->cd server
+->npm run dev
