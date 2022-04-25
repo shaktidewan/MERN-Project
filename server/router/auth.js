@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 //bcrypt
 const bcrypt = require('bcryptjs');
+//middleware for about page:
+const authenticate = require("../middleware/authenticate");
 
 //DATABASE CONNECTION
 require("../db/connection");
@@ -62,7 +64,7 @@ router.post("/signin", async (req,res) =>{
       if(!isMatched){
         res.status(400).json({error:'Invalid Credientials'});
       }else{
-        res.json({message:"User SignIn Successful"});
+        res.json({userLogin});
       }
     }else{
       res.status(400).json({error:'Invalid Credientials'});
@@ -70,6 +72,12 @@ router.post("/signin", async (req,res) =>{
  } catch (error) {
    console.log(error);
  }
-})
+});
+
+//about us page:
+//authenticate is middleware, create authenticate named file inside middlwware folder
+router.get('/about',authenticate,(req,res) =>{
+  res.send(req.rootUser);//rootUser is from authenticate middleware
+});
 
 module.exports = router;

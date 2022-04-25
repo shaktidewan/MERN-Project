@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 //.env
 dotenv.config({path: './config.env'});
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
 
 //converting post data into json
 app.use(express.json());

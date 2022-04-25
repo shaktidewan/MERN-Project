@@ -47,3 +47,6 @@ npm i bootstrap
 
 //FOR REACT ROUTER DOM
 npm i react-router-dom
+
+//For cookies praser
+npm i cookie-parser

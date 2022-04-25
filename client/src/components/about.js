@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    callAboutPage();
+  },[]);
+
+  const callAboutPage = async() =>{
+    try {
+        const res = await fetch('/about',{
+          method:"GET",
+          headers:{
+            Accept:"application/json",//for cookies in web
+            "Content-Type":"application/json"
+          },
+          credentials:'include'//getting cookies to backend
+        });
+        //above code will send cookise to our backend
+        
+        //getting back our response from server
+        const data = await res.json();//converting into json
+        console.log(data);
+
+        if(!res.status === 200){
+          const error = new Error(res.error);
+          throw error;
+        }
+
+    } catch (error) {
+      console.log("ABOUT PAGE",error);
+      navigate("/");
+    }
+  }
+
   return (
     <>
       <div className="container emp-profile">
-        <form method="">
+        <form method="GET">
           <div className="row">
             <div className="col-md-4">{/* <img/> */}</div>
             <div className="col-md-6">
