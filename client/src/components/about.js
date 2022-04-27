@@ -45,8 +45,8 @@ const About = () => {
             <div className="col-md-4">{/* <img/> */}</div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>{userData.name}</h5>
-                <h6>{userData.work}</h6>
+                <h5>{userData ? userData.name : 'EMPTY'}</h5>
+                <h6>{userData ? userData.work : 'EMPTY'}</h6>
                 <p className="profile-rating mt-3 mb-5">
                   Rankings: <span>1/10</span>
                 </p>
@@ -134,7 +134,7 @@ const About = () => {
                       <label htmlFor="User Id">Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>{userData.name}</p>
+                      <p>{userData ? userData.name : ''}</p>
                     </div>
                   </div>
                   <div className="row mt-5">
