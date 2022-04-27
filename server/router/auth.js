@@ -80,4 +80,8 @@ router.get('/about',authenticate,(req,res) =>{
   res.send(req.rootUser);//rootUser is from authenticate middleware
 });
 
+//FOR USER INFORMATION:
+router.get('/getData',authenticate,(req,res) =>{
+  res.send(req.rootUser);
+})
 module.exports = router;

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 const About = () => {
   const navigate = useNavigate();
+  const [userData,setUserData] = useState();
 
   useEffect(()=>{
     callAboutPage();
@@ -23,6 +24,7 @@ const About = () => {
         //getting back our response from server
         const data = await res.json();//converting into json
         console.log(data);
+        setUserData(data);
 
         if(!res.status === 200){
           const error = new Error(res.error);
@@ -43,8 +45,8 @@ const About = () => {
             <div className="col-md-4">{/* <img/> */}</div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Shakti Dewan</h5>
-                <h6>React Developer</h6>
+                <h5>{userData.name}</h5>
+                <h6>{userData.work}</h6>
                 <p className="profile-rating mt-3 mb-5">
                   Rankings: <span>1/10</span>
                 </p>
@@ -132,7 +134,7 @@ const About = () => {
                       <label htmlFor="User Id">Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Shakti</p>
+                      <p>{userData.name}</p>
                     </div>
                   </div>
                   <div className="row mt-5">
