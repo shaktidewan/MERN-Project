@@ -85,3 +85,30 @@ router.get('/getData',authenticate,(req,res) =>{
   res.send(req.rootUser);
 })
 module.exports = router;
+
+//FOR CONTACT PAGE DATA:
+//authneticate is used because user should authenticate to send data to server
+router.post('/contact',authenticate,async (req,res) =>{
+  try {
+      const {name,email,phone,message} = req.body;
+
+      if(!name||!email||!phone||!message){
+        console.log("Error in contact form")
+        return res.json({error:"please fill the contact form"});
+      }
+
+      //finding the user: User is database model
+      const userContact = await User.findOne({_id:req.userID});// it is used in authentication middleware:req.userID = rootUser._id;
+
+      //if we get the userID then add message in it
+      if(userContact){
+        //addMessage is instance that is added later in the collection
+          const userMessage = await  userContact.addMessage(name,email,phone,message);
+
+          await userContact.save();
+          res.status(201).json({message:"user contact success"})
+      }
+  } catch (error) {
+    console.log(error);
+  }
+})
