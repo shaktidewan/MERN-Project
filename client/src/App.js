@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Errorpage from "./components/Errorpage";
 import 'bootstrap/dist/css/bootstrap.css';
+import Logout from "./components/logout";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/contact" element={<Contact/>} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/logout" element={<Logout />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
     </>

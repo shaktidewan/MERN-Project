@@ -84,7 +84,6 @@ router.get('/about',authenticate,(req,res) =>{
 router.get('/getData',authenticate,(req,res) =>{
   res.send(req.rootUser);
 })
-module.exports = router;
 
 //FOR CONTACT PAGE DATA:
 //authneticate is used because user should authenticate to send data to server
@@ -112,3 +111,11 @@ router.post('/contact',authenticate,async (req,res) =>{
     console.log(error);
   }
 })
+
+//for logout
+router.get('/logout',(req,res) =>{
+  console.log("User Log out");
+  res.clearCookie('jwtToken',{path:'/'})
+  res.status(200).send("User Logout");//rootUser is from authenticate middleware
+});
+module.exports = router;
