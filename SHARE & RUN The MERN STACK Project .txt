@@ -1,0 +1,14 @@
+1. Delete the node_modules folder
+2. zip it and then share
+3. unzip the folder and copy the project in new path
+4. install the dependencies using yarn/npm install
+5. simply run it.
+
+ERROR Occured:
+no connection MongoError: Authentication failed:
+//yo config.env bata ayeko
+PORT = 5000
+DATABASE = mongodb+srv://shakti:PADAMBISNU12@cluster0.5nwbr.mongodb.net/mernStack?retryWrites=true&w=majority
+SECRET_KEY=MYNAMEISSHAKTIDEWANSHAKTIDEWANSHAKTIDEWANSHAKTIDEWAN 
+
+i.e DATABASE: afnai mongodb cluster ko link halnu parxa. yo link atlas ko conncet ma click garera connect to cluster vane ma link aauxa
