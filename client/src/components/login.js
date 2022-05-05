@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdWork } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineMail, AiFillPhone } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from "../App";
 
 const Login = () => {
+
+  const {state,dispatch} = useContext(UserContext);
+
+
   const navigate = useNavigate();
 
   const [email,setEmail] = useState('');
@@ -31,6 +36,7 @@ const Login = () => {
     if(res.status === 400 || !data){
       window.alert("Invalid Credentials");
     }else{
+      dispatch({type:"USER",payload:true})
       window.alert("login Successful");
       navigate("/");
     }

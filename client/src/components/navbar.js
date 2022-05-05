@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { NavLink } from "react-router-dom";
 import logo from "../res/images/coffee.png";
+import { UserContext } from "../App";
 
 const Navbar = () => {
+  const {state,dispatch} = useContext(UserContext);
+
+
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +34,7 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {state !== true ? <><li className="nav-item">
                 <NavLink className="nav-link" to="/login">
                   Login
                 </NavLink>
@@ -38,12 +43,13 @@ const Navbar = () => {
                 <NavLink className="nav-link" to="/signup">
                   Sign Up
                 </NavLink>
-              </li>
-              <li className="nav-item">
+              </li></> :<li className="nav-item">
                 <NavLink className="nav-link" to="/logout">
                   Log Out
                 </NavLink>
-              </li>
+              </li>}
+              
+              
             </ul>
           </div>
         </div>
